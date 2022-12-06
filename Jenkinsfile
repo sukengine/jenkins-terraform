@@ -45,7 +45,7 @@ pipeline {
             }  
             steps {
                 echo "Terraform action is --> plan"
-              sh ('terraform apply -var="aws_access_key=$AWS_ACCESS_KEY" -var="aws_secret_key=$AWS_SECRET_KEY" --auto-approve') 
+              sh ('terraform destroy -var="aws_access_key=$AWS_ACCESS_KEY" -var="aws_secret_key=$AWS_SECRET_KEY" --auto-approve') 
            }
         }
     }
