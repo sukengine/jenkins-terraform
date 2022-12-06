@@ -33,7 +33,8 @@ resource "aws_eip_association" "eip_assoc_appserv" {
 }
 
 resource "aws_instance" "app_serv" {
-  ami           = data.aws_ami_ids.ubuntu.id
+#  ami           = data.aws_ami_ids.ubuntu.id
+  ami           = "ami-0022f774911c1d690"
   instance_type = "t2.micro"
 
   tags = {
