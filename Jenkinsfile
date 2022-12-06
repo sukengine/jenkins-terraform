@@ -1,14 +1,39 @@
 pipeline {
     agent any
 
+//Build    
     stages {
         stage('Checkout') {
             steps {
             checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/sukengine/jenkins-terraform.git']]])            
-
           }
+        }        
+        stage('Build') {
+            steps{
+                sh 'echo make'
+                //sh 'make'
+            }
         }
-        
+    }
+    
+//Test
+    stages {
+        stage('Test') {
+            steps {
+                sh 'echo Test'
+                //sh 'make check || true'
+                //junit '**/target/*.xml'
+            }
+        }
+    }
+    
+//Deploy
+    stages {
+        stege('Deploy') {
+            steps{
+                sh 'echo deploy'
+            }
+        }
         stage ("terraform init") {
             steps {
                 sh ('terraform init') 
