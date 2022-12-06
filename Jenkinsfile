@@ -9,7 +9,6 @@ pipeline {
           }
         }
         
-        //Build
         stage("Build") {
             steps{
                 sh 'echo make'
@@ -17,7 +16,6 @@ pipeline {
             }
         }
         
-        //Test
         stage("Test") {
             steps {
                 sh 'echo Test'
@@ -26,7 +24,6 @@ pipeline {
             }
         }
         
-        //Deploy
         stege("Deploy") {
             steps{
                 sh 'echo deploy'
