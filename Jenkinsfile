@@ -3,14 +3,14 @@ pipeline {
     
 
     stages {
-        stage('Checkout') {
+        stage("Checkout") {
             steps {
             checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/sukengine/jenkins-terraform.git']]])            
           }
         }
         
         //Build
-        stage('Build') {
+        stage("Build") {
             steps{
                 sh 'echo make'
                 //sh 'make'
@@ -18,7 +18,7 @@ pipeline {
         }
         
         //Test
-        stage('Test') {
+        stage("Test") {
             steps {
                 sh 'echo Test'
                 //sh 'make check || true'
@@ -27,7 +27,7 @@ pipeline {
         }
         
         //Deploy
-        stege('Deploy') {
+        stege("Deploy") {
             steps{
                 sh 'echo deploy'
             }
